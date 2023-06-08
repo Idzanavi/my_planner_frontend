@@ -1,4 +1,4 @@
-const SERVER_ADDRESS =  '192.168.0.116:8000';
+const SERVER_ADDRESS =  '127.0.0.1:8000';
 
 export function make_full_address(address, protocol='http'){
     return protocol + '://' + SERVER_ADDRESS + '/' + address;
