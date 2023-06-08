@@ -1,13 +1,13 @@
 <template>
-    <div class="chat-users" data-app>
+    <div class="task" data-app>
         <Header/>
-        <MainMenu active_item="chat"/>
+        <MainMenu active_item="task"/>
         <v-container class="bg-surface-variant">
             <v-row no-gutters>
                 <v-col cols = "2">
                 </v-col>
                 <v-col cols = "8">
-                    <ChatUsersList/>
+                    <TaskView/>
                 </v-col>
                 <v-col cols = "2">
                 </v-col>
@@ -21,13 +21,13 @@
   import Header from '../components/Header.vue'
   import MainMenu from '../components/MainMenu.vue'
   import Footer from "../components/Footer.vue"
-  import ChatUsersList from "../components/ChatUsersList.vue"
- 
-  import {is_logged_in, update_is_admin} from '../js/server_utils';
+  import TaskView from "../components/TaskView.vue"
 
+  import {is_logged_in, update_is_admin} from '../js/server_utils';
+  
   export default {
-    name: 'ChatUsers',
-    components: { Header, MainMenu, Footer, ChatUsersList },
+    name: 'Task',
+    components: { Header, MainMenu, Footer, TaskView },
     data() {
         return {
         }
@@ -40,8 +40,8 @@
                 update_is_admin(this.$store, this.$http);
             }
         }
-        if(!is_logged_in(this.$store) ||  !this.$store.state.is_admin){
-            this.$router.replace('/chat');
+        if(!is_logged_in(this.$store)){
+            this.$router.replace('/about');
         }
     },
   }
