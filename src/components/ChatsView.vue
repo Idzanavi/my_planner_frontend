@@ -44,10 +44,11 @@
                     <v-list-item
                         v-for="(room, i) in rooms"
                         :key="'li_' + i"
-                        @click="navigateToRoom(room)"
+                        @click="navigateToRoom(room.name)"
                     >
                         <v-list-item-content>
-                            <v-list-item-title v-text="room"></v-list-item-title>
+                            <v-list-item-title></v-list-item-title>
+                            <b>{{room.name}}</b> ({{room.guests}} guests)
                         </v-list-item-content>
                     </v-list-item>
                 </v-list-item-group>
@@ -108,9 +109,17 @@ export default {
             return "";
         }
     },
+    makePageParams(){
+        if(this.page !== undefined){
+            return {page: this.page};
+        }else{
+            return {};
+        }
+    },
     loadPage(){
-        let address = "chat/api/rooms/" + this.makePageAddr();
-        this.$http.get(make_full_address(address)).then(this.updateChatsFromResponse).catch(this.onHttpError);
+        let address = "chat/api/rooms/";
+        let params = this.makePageParams();
+        this.$http.get(make_full_address(address), {params}).then(this.updateChatsFromResponse).catch(this.onHttpError);
     },
     isAdmin(){
         return this.$store.state.is_admin;
@@ -124,8 +133,8 @@ export default {
             if(data.pages){
                 this.pages = data.pages;
             }
-            if(data.rooms){
-                this.rooms = data.rooms;
+            if(data.results){
+                this.rooms = data.results;
             }else{
                 this.rooms = [];
             }

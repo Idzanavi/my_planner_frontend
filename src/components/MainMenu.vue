@@ -58,6 +58,18 @@
                     <v-slide-item>
                     <v-btn
                         class="mx-2"
+                        :input-value="active_item == 'task'"
+                        active-class="purple white--text"
+                        depressed
+                        rounded
+                        @click="onTaskClicked()"
+                    >
+                        Task
+                    </v-btn>
+                    </v-slide-item>
+                    <v-slide-item>
+                    <v-btn
+                        class="mx-2"
                         :input-value="active_item == 'about'"
                         active-class="purple white--text"
                         depressed
@@ -102,6 +114,9 @@ export default {
     },
     onChatClicked(){
         this.$router.push({ path: '/chat' }).catch(this.onError);
+    },
+    onTaskClicked(){
+        this.$router.push({ path: '/task' }).catch(this.onError);
     },
     onAboutClicked(){
         this.$router.push({ path: '/about' }).catch(this.onError);

@@ -332,11 +332,6 @@ export default {
     },
   },
   watch:{
-    page(new_page, old_page) {
-        if(new_page != old_page){
-            this.loadPage();
-        }
-    }
   },
   mounted(){
     this.createSocket(this.getRoomName());

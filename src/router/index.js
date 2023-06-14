@@ -8,6 +8,8 @@ import Register from '../views/Register.vue'
 import Chats from '../views/Chats.vue'
 import Chat from '../views/Chat.vue'
 import ChatUsers from '../views/ChatUsers.vue'
+import Task from '../views/Task.vue'
+import Tasks from '../views/Tasks.vue'
 
 Vue.use(VueRouter)
 
@@ -61,6 +63,16 @@ const routes = [
     path: '/chat-users',
     name: 'ChatUsers',
     component: ChatUsers
+  },
+  {
+    path: '/task',
+    name: 'Task',
+    component: Task
+  },
+  {
+    path: '/tasks',
+    name: 'Tasks',
+    component: Tasks
   },
 ]
 
