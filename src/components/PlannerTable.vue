@@ -136,7 +136,7 @@ export default {
   components: {ItemEditDialog, ItemShowDialog, InfoDialog, YesNoDialog, },
   data() {
     return {
-      days: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
+      days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       planner_items: [
         [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], 

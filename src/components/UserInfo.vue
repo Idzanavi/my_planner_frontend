@@ -92,7 +92,7 @@ export default {
       }
     },
     getBirthDateText(){ 
-      return this.birth_date ? dateFormat(this.birth_date) : "";
+      return (this.birth_date !== null) ? dateFormat(this.birth_date) : "";
     },
     isLoggedIn(){
         return is_logged_in(this.$store);
@@ -104,7 +104,7 @@ export default {
         this.first_name = data.first_name;
         this.last_name = data.last_name;
         this.email = data.email;
-        this.birth_date = (data.birthdate !== undefined) ? new Date(Date.parse(data.birthdate)) : null;
+        this.birth_date = (data.birthdate !== undefined && data.birthdate !== null) ? new Date(Date.parse(data.birthdate)) : null;
         this.gender = data.gender;
       }
     },

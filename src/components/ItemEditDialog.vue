@@ -122,7 +122,7 @@ export default {
         item_title: undefined,
         item_text: undefined,
         item_color: null,
-        extre: null,
+        extra: null,
     }
   },
   computed: {

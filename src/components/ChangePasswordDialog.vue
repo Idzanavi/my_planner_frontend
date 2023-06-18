@@ -107,6 +107,7 @@ export default {
             new_password2: this.new_password2,
         };
         this.$emit("submit", data);
+        this.hideDialog();
     },
     onCancelClicked(){
        this.hideDialog();
